@@ -1,28 +1,34 @@
-import React from 'react';
-import Container from './Container';
+import React from "react";
+import Container from "./Container";
 
-const Toggle_Btns = ({toggleStatus,setToggleStatus}) => {
-  //const[toggleStatus,setToggleStatus]=useState('All');
+const Toggle_Btns = ({ toggleStatus, setToggleStatus }) => {
+  const btns = ["All", "Pending", "Submitted", "Reviewd"];
 
-    return (
-        <div>
-            <Container>
-    <div className='text-right mb-[50px]'>
-    <button className={` toggle-btn rounded-l-md ${toggleStatus=== "All" && "!text-white  !bg-purple-500"}`} onClick={() => setToggleStatus("All")}>All</button>
-    <button className={` toggle-btn ${toggleStatus=== "Pending" && "!text-white  !bg-purple-500"}`} onClick={() => setToggleStatus("Pending")}>Pending</button>
-    <button className={` toggle-btn ${toggleStatus=== "Submitted" && "!text-white  !bg-purple-500"}`} onClick={() => setToggleStatus("Submitted")}>Submitted</button>
-    <button className={` toggle-btn rounded-r-md ${toggleStatus=== "Reviewd" && "!text-white  !bg-purple-500"}`} onClick={() => setToggleStatus("Reviewd")}>Reviewd</button>
+  return (
+    
+      <Container>
+        <div className="text-right mb-[50px]">
+        
+        {
+            btns.map((btn,index) => {
+                return <button
+                key={index}
+            className={`${index===0 && "rounded-l-md"} ${index===btns.length-1 && "rounded-r-md"} toggle-btn rounded-l-md ${
+              toggleStatus === btn && "!text-white  !bg-purple-500"
+            }`}
+            onClick={() => setToggleStatus(btn)}
+          >
+            {btn}
+          </button>
+            })
+        }
 
-    
-    
 
-    
-    
-  </div>
-  
-</Container>
+
         </div>
-    );
+      </Container>
+    
+  );
 };
 
 export default Toggle_Btns;
