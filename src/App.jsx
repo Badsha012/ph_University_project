@@ -1,4 +1,4 @@
-import {} from 'react'
+import { useState } from 'react'
 
 import './App.css'
 import Navbar from './Components/Navbar'
@@ -6,6 +6,9 @@ import Footer from './Components/Footer'
 import Container from './Components/Container'
 
 function App() {
+
+  const[toggleStatus,setToggleStatus]=useState('All');
+  console.log(toggleStatus);
   
 
   return (
@@ -31,6 +34,23 @@ function App() {
 
     </div>
     </Container>
+  {/* Toggle buttons */}
+<Container>
+    <div className='text-right mb-[50px]'>
+    <button className={` toggle-btn rounded-l-md ${toggleStatus=== "All" && "!text-white  !bg-purple-500"}`} onClick={() => setToggleStatus("All")}>All</button>
+    <button className=' toggle-btn ' onClick={() => setToggleStatus("Pending")}>Pending</button>
+    <button className=' toggle-btn ' onClick={() => setToggleStatus("Submitted")}>Submitted</button>
+    <button className=' toggle-btn rounded-r-md' onClick={() => setToggleStatus("Reviewd")}>Reviewd</button>
+
+    
+    
+
+    
+    
+  </div>
+  
+</Container>
+
     <Footer></Footer> 
     </div>
   )
