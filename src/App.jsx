@@ -4,6 +4,7 @@ import './App.css'
 import Navbar from './Components/Navbar'
 import Footer from './Components/Footer'
 import Container from './Components/Container'
+import Toggle_Btns from './Components/Toggle_Btns'
 
 function App() {
 
@@ -35,21 +36,7 @@ function App() {
     </div>
     </Container>
   {/* Toggle buttons */}
-<Container>
-    <div className='text-right mb-[50px]'>
-    <button className={` toggle-btn rounded-l-md ${toggleStatus=== "All" && "!text-white  !bg-purple-500"}`} onClick={() => setToggleStatus("All")}>All</button>
-    <button className=' toggle-btn ' onClick={() => setToggleStatus("Pending")}>Pending</button>
-    <button className=' toggle-btn ' onClick={() => setToggleStatus("Submitted")}>Submitted</button>
-    <button className=' toggle-btn rounded-r-md' onClick={() => setToggleStatus("Reviewd")}>Reviewd</button>
-
-    
-    
-
-    
-    
-  </div>
-  
-</Container>
+ <Toggle_Btns toggleStatus={toggleStatus} setToggleStatus={setToggleStatus} ></Toggle_Btns>
 
     <Footer></Footer> 
     </div>
